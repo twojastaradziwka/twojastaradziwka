@@ -1,0 +1,245 @@
+<title>mObywatel</title><link rel="icon" type="image/png" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F_TNbiYKasPy_isTSEg2_UEzVaev4F8fO2lLunsHJ8_Ux2g3OzkSZyzpqvJG1woSj-WD4&amp;f=1&amp;nofb=1&amp;ipt=d7aba7d875a2743df00700d0d658eeab02a1ab1efac2869f60e4f9912039da8b"><link rel="apple-touch-icon" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F_TNbiYKasPy_isTSEg2_UEzVaev4F8fO2lLunsHJ8_Ux2g3OzkSZyzpqvJG1woSj-WD4&amp;f=1&amp;nofb=1&amp;ipt=d7aba7d875a2743df00700d0d658eeab02a1ab1efac2869f60e4f9912039da8b">
+<!-- Mirrored from crackobywatel.pl/dowod.php?id=1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq&page=car by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 24 Dec 2025 20:26:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta name="mobile-web-app-capable" content="yes"><link rel="shortcut icon" sizes="192x192" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F_TNbiYKasPy_isTSEg2_UEzVaev4F8fO2lLunsHJ8_Ux2g3OzkSZyzpqvJG1woSj-WD4&amp;f=1&amp;nofb=1&amp;ipt=d7aba7d875a2743df00700d0d658eeab02a1ab1efac2869f60e4f9912039da8b"><!-- 
+  Copyright © 2025 CrackObywatel. Wszystkie prawa zastrzelone.
+-->
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <script>
+      // --- 1. KONFIGURACJA ---
+      var basePath = "generations/1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq/assets/app/";
+      
+      // Lista plików CSS dla tej konkretnej strony
+      var cssFiles = ["car.css"]; 
+  
+      // --- 2. LOGIKA GŁÓWNA ---
+      (function() {
+          var mode = localStorage.getItem("app_mode"); // "light" lub null
+  
+          // A. ŁADOWANIE PLIKÓW CSS
+          for (var i = 0; i < cssFiles.length; i++) {
+              var fileName = cssFiles[i];
+              if (mode === "light") {
+                  fileName = fileName.replace(".css", "_light.css");
+              }
+              document.write('<link class="theme-link" rel="stylesheet" href="' + basePath + fileName + '">');
+          }
+  
+          // B. AUTOMATYCZNA ZMIANA IKONEK (To naprawia Twój problem)
+          if (mode === "light") {
+              // KROK 1: Ukrywamy obrazki .html zanim się pojawią (żeby nie mignęły na ciemno)
+              document.write('<style id="icon-fix">img[src$=".html"] { visibility: hidden; }</style>');
+  
+              // KROK 2: Czekamy aż strona się wczyta
+              window.addEventListener('DOMContentLoaded', function() {
+                  // Szukamy wszystkich obrazków kończących się na .html
+                  var images = document.querySelectorAll('img[src$=".html"]');
+  
+                  images.forEach(function(img) {
+                      var currentSrc = img.getAttribute("src");
+                      
+                      // Jeśli to nie jest jeszcze wersja light, zmieniamy
+                      if (!currentSrc.includes("_light.html")) {
+                          var newSrc = currentSrc.replace(".html", "_light.html");
+                          
+                          // ZABEZPIECZENIE: Jeśli wersja light nie istnieje, zostaw starą
+                          img.onerror = function() {
+                              this.onerror = null;
+                              this.src = currentSrc;
+                          };
+                          
+                          img.src = newSrc;
+                      }
+                  });
+  
+                  // KROK 3: Usuwamy blokadę widoczności - ikonki się pokazują
+                  // Robimy minimalne opóźnienie (0ms), żeby przeglądarka zdążyła przetrawić zmianę src
+                  setTimeout(function() {
+                      var styleTag = document.getElementById("icon-fix");
+                      if (styleTag) styleTag.remove();
+                  }, 0);
+              });
+          }
+      })();
+  </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mObywatel</title>
+    <link rel="icon" type="image/x-icon" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F_TNbiYKasPy_isTSEg2_UEzVaev4F8fO2lLunsHJ8_Ux2g3OzkSZyzpqvJG1woSj-WD4&amp;f=1&amp;nofb=1&amp;ipt=d7aba7d875a2743df00700d0d658eeab02a1ab1efac2869f60e4f9912039da8b" />
+  </head>
+  <body>
+    <div class="navbar">
+      <a onclick="sendTo('home', true)" class="action_grid_fixed">
+        <img
+          src="generations/1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq/assets/app/images/back_blue.html"
+          class="back_img_fixed"
+          alt="Powrót" />
+        <p class="back_text_fixed">Wróć</p>
+      </a>
+      <span class="title">Historia pojazdu</span>
+    </div>
+    <div class="icon-section">
+      <div class="icon-circle">
+        <img src="generations/1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq/assets/app/images/vehicle.html" alt="ikona" />
+      </div>
+    </div>
+    <div class="header-text">
+      <h1>Sprawdź informacje<br />o pojeździe</h1>
+      <p>
+        Zapoznaj się z danymi technicznymi, odczytami licznika, liczbą
+        dotychczasowych właścicieli i innymi ważnymi informacjami.
+      </p>
+    </div>
+    <div class="form-card">
+      <label for="reg">Numer rejestracyjny</label>
+      <input type="text" id="reg" placeholder="np. WX12345" />
+      <label for="vin">Numer VIN</label>
+      <input type="text" id="vin" placeholder="np. WBA3A91060F123456" />
+      <small>Numer VIN znajdziesz w dowodzie rejestracyjnym w polu E.</small>
+    </div>
+    <button class="submit-btn">Sprawdź pojazd</button>
+    <div class="bottom_bar">
+      <div class="bottom_bar_grid">
+        <a
+          onclick="sendTo('home', true)"
+          class="bottom_element_grid"
+          data-page="home">
+          <img
+            class="bottom_element_image"
+            src="generations/1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq/assets/app/images/home_open.html"
+            alt="Ikona pulpitu" />
+          <p class="bottom_element_text">Pulpit</p>
+        </a>
+        <a
+          onclick="sendTo('documents', true)"
+          class="bottom_element_grid"
+          data-page="documents">
+          <img
+            class="bottom_element_image"
+            src="generations/1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq/assets/app/images/documents.html"
+            alt="Ikona dokumentów" />
+          <p class="bottom_element_text">Dokumenty</p>
+        </a>
+        <a
+          onclick="sendTo('services', true)"
+          class="bottom_element_grid"
+          data-page="services">
+          <img
+            class="bottom_element_image"
+            src="generations/1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq/assets/app/images/services.html"
+            alt="Ikona usług" />
+          <p class="bottom_element_text">Usługi</p>
+        </a>
+        <a
+          onclick="sendTo('qr', true)"
+          class="bottom_element_grid"
+          data-page="qr">
+          <img
+            class="bottom_element_image"
+            src="generations/1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq/assets/app/images/identity.html"
+            alt="Ikona kodu QR" />
+          <p class="bottom_element_text">Kod QR</p>
+        </a>
+        <a
+          onclick="sendTo('more', true)"
+          class="bottom_element_grid"
+          data-page="more">
+          <img
+            class="bottom_element_image"
+            src="generations/1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq/assets/app/images/other.html"
+            alt="Ikona więcej opcji" />
+          <p class="bottom_element_text">Więcej</p>
+        </a>
+      </div>
+    </div>
+    <script>const folderId = "1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq";
+      const iconPaths = {
+        home: {
+          active: "/assets/app/images/home_open.html",
+          inactive: "/assets/app/images/home.html",
+        },
+        documents: {
+          active: "/assets/app/images/documents_open.html",
+          inactive: "/assets/app/images/documents.html",
+        },
+        services: {
+          active: "/assets/app/images/services_open.html",
+          inactive: "/assets/app/images/services.html",
+        },
+        qr: {
+          active: "/assets/app/images/identity_open.html",
+          inactive: "/assets/app/images/identity.html",
+        },
+        more: {
+          active: "/assets/app/images/other_open.html",
+          inactive: "/assets/app/images/other.html",
+        },
+      };
+
+      function sendTo(pageName, shouldRedirect = false) {
+        const navElements = document.querySelectorAll(".bottom_element_grid");
+        navElements.forEach((element) => {
+          element.classList.remove("active");
+          const img = element.querySelector("img");
+          const text = element.querySelector("p");
+          if (img) {
+            const pageId = element.dataset.page;
+            img.src = iconPaths[pageId]?.inactive;
+          }
+          if (text) {
+            text.classList.remove("active");
+          }
+        });
+        const activeElement = document.querySelector(
+          `a[onclick*="'${pageName}'"]`
+        );
+        if (activeElement) {
+          activeElement.classList.add("active");
+          const img = activeElement.querySelector("img");
+          const text = activeElement.querySelector("p");
+          if (img) {
+            img.src = iconPaths[pageName]?.active;
+          }
+          if (text) {
+            text.classList.add("active");
+          }
+        }
+        // 2. KLUCZOWA ZMIANA: PRZEKIEROWANIE NA PLIK LOKALNY
+  if (shouldRedirect) {
+    // Tworzymy ścieżkę do lokalnego pliku .html
+    // Jeśli pliki są w tym samym folderze, wystarczy 'pageName.html'
+    let newUrl = `${pageName}.html`;
+    
+    console.log("Przekierowuję do lokalnego pliku:", newUrl);
+    window.location.href = newUrl;
+  }
+}
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const currentPage = urlParams.get("page") || "home";
+        const activeElement = document.querySelector(
+          `a[data-page="${currentPage}"]`
+        );
+        if (activeElement) {
+          activeElement.classList.add("active");
+          const img = activeElement.querySelector("img");
+          const text = activeElement.querySelector("p");
+          if (img) {
+            img.src = iconPaths[currentPage]?.active;
+          }
+          if (text) {
+            text.classList.add("active");
+          }
+        }
+      });
+    </script>
+  </body>
+
+<!-- Mirrored from crackobywatel.pl/dowod.php?id=1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq&page=car by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 24 Dec 2025 20:26:52 GMT -->
+</html>
+<!-- 
+  Copyright © 2025 CrackObywatel. Wszystkie prawa zastrzelone.
+-->

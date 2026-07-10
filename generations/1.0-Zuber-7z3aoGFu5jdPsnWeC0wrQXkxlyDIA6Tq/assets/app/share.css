@@ -1,0 +1,400 @@
+
+
+.title{
+    font-weight: 600;
+    margin-top: 30px;
+    font-size: 22px;
+    margin-bottom: 15px;
+    height: max-content;
+    color: white;
+}
+
+.titles{
+    font-weight: 600;
+    margin-top: 5px;
+    font-size: 22px;
+    margin-bottom: 0px;
+    height: max-content;
+    color: white;
+    line-height: 1.8;
+}
+
+.card .top_title{
+    margin-top: 15px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    font-size: 13px !important;
+    color: white;
+    font-weight: 300;
+}
+
+.top_titles{
+    margin-top: 1px;
+    margin-bottom: 0px;
+    margin-left: 1px;
+    color: rgb(255, 255, 255);
+    font-weight: 300;
+}
+
+
+
+
+.bottom_confirm {
+    /* Zostawiamy Twój Grid, żeby nie popsuć układu w środku, jeśli masz tam coś jeszcze */
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: max-content max-content;
+    
+    /* --- KLUCZOWE ZMIANY DLA PWA --- */
+    position: fixed;           /* ZMIANA: Z absolute na fixed (przykleja do ekranu, ignoruje scroll) */
+    bottom: 0;                 /* ZMIANA: Z 100px na 0 (przykleja do samego dołu) */
+    left: 0;
+    width: 100%;               /* ZMIANA: Z var(--width) na 100% (wymusza pełną szerokość) */
+    z-index: 999;              /* Gwarantuje, że pasek będzie nad przewijanym tekstem */
+    
+    /* --- WYGLĄD PASKA (czarne tło i odstępy) --- */
+    background-color: #1C1C1E; /* Czarne/Ciemne tło paska */
+    padding: 15px 20px;        /* Wewnętrzne odstępy od krawędzi */
+    
+    /* Ważne w PWA: Omija dolny pasek systemowy (np. w iPhone) żeby nie nachodził na przycisk */
+    padding-bottom: calc(15px + env(safe-area-inset-bottom)); 
+    box-sizing: border-box;
+}
+
+  .login_confirm {
+    color: black;
+    line-height: 60px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 22px;
+    width: 100%;
+    height: 60px;
+    border-radius: 40px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    background-color: #429BFF !important;
+  }
+  
+
+.dot-text {
+    display: flex;
+    align-items: center; /* Wyśrodkowuje kropkę i tekst w pionie */
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 7px;
+    margin-top: 5px;
+}
+
+/* To tworzy samą kropkę */
+.dot-text::before {
+    content: '';              /* Wymagane dla pseudoelementu, zostawiamy puste */
+    display: inline-block;
+    width: 6px;               /* Szerokość kropki */
+    height: 6px;              /* Wysokość kropki (musi być taka sama jak szerokość) */
+    background-color: white;  /* Kolor kropki */
+    border-radius: 50%;       /* Zaokrągla kwadrat do idealnego kółka */
+    margin-right: 10px;       /* Odstęp między kropką a tekstem */
+}
+
+
+
+.cards {
+    width: 100%;
+    min-height: 100px;
+    background-color: #1C2024;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    
+    /* TO JEST KLUCZOWE: Ustawia elementy w kolumnie (jeden pod drugim) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Wyśrodkowuje w pionie */
+}
+
+.carde {
+    width: 100%;
+    min-height: 100px;
+    background-color: #1C2024;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    
+    /* TO JEST KLUCZOWE: Ustawia elementy w kolumnie (jeden pod drugim) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Wyśrodkowuje w pionie */
+}
+
+
+
+.arrow{
+    margin-left: auto;
+    width: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 15px !important;
+}
+
+.other{
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    background-color: #1C2024;
+    width: 100%;
+    height: max-content;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: max-content max-content;
+}
+
+.other_title{
+    margin-top: 40px;
+    font-size: 22px;
+    height: max-content;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+    text-align: center;
+    color: white;
+}
+
+.other_subtitle{
+    margin-bottom: 40px;
+    margin-top: 0px;
+    text-align: center;
+    opacity: 0.5;
+    font-weight: 400;
+    font-size: 19px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+}
+
+.verification-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7); /* Mocne przyciemnienie tła */
+    display: none; /* Domyślnie ukryte */
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Zawsze na wierzchu */
+}
+
+.verification-box {
+    background-color: #ffffff; 
+    border-radius: 20px;       
+    
+    /* --- NOWE REGUŁY SZEROKOŚCI --- */
+    width: calc(100% - 40px); /* 100% szerokości ekranu MINUS 20px z lewej i 20px z prawej */
+    box-sizing: border-box;   /* Sprawia, że wewnętrzne odstępy nie rozpychają okienka */
+    margin: 0 20px;           /* Gwarantuje 20px odstępu od krawędzi */
+    
+    /* Zmniejszyłem boczne odstępy na 20px, żeby napis ładnie się mieścił na telefonach */
+    padding: 40px 20px;        
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+}
+
+/* Spinner (Kółko ładowania) */
+.spinner {
+    width: 50px;
+    height: 50px;
+    /* "Leciutko szare" tło kółka */
+    border: 5px solid #f3f3f3; 
+    /* "Niebieski ruchomy element" na górze */
+    border-top: 5px solid #3498db; 
+    border-radius: 50%;
+    animation: spin 1s linear infinite; /* Płynne kręcenie */
+    margin-bottom: 25px; /* Odstęp od tekstu */
+}
+
+/* Animacja kręcenia (musi być w kodzie, żeby spinner działał) */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Czarny napis */
+.verification-text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    font-size: 22px;           /* Wyraźny rozmiar czcionki */
+    font-weight: 600;          /* Lekkie pogrubienie (semibold) */
+    color: #000000;            /* Idealnie czarny kolor tekstu */
+    letter-spacing: 0.5px;
+}
+
+/* --- Style dla Okienka Błędu --- */
+
+/* Specyficzne ustawienia dla pudełka z błędem */
+.error-box-content {
+    background-color: #ffffff;
+    border-radius: 20px;       /* Takie same zaokrąglenia jak w weryfikacji */
+    
+    /* --- USTAWIENIA SZEROKOŚCI (20px odstępu po bokach) --- */
+    width: calc(100% - 40px); 
+    box-sizing: border-box;   
+    margin: 0 20px;           
+    
+    /* Wewnętrzne odstępy okienka */
+    padding: 30px 20px;       
+    text-align: center; 
+    
+    /* Jeśli chcesz, żeby błąd też miał delikatny cień: */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); 
+}
+
+/* Czerwone kółko z ikoną X */
+.error-icon-container {
+    width: 60px;
+    height: 60px;
+    background-color: #FF3B30; /* Czerwony kolor błędu */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(255, 59, 48, 0.3); /* Delikatna czerwona poświata */
+}
+
+/* Nagłówek "Wystąpił błąd" */
+.error-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1C1C1E; /* Ciemny kolor tekstu */
+    margin: 0 0 10px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Opis błędu */
+.error-description {
+    font-size: 15px;
+    color: #3A3A3C; /* Nieco jaśniejszy kolor tekstu */
+    line-height: 1.4;
+    margin: 0 0 25px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+/* Bazowy styl dla obu przycisków */
+.error-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    border: none;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+/* Przycisk "Spróbuj ponownie" (Niebieski) */
+.retry-btn {
+    background-color: #014189; /* Ciemnoniebieski */
+    color: white;
+    margin-bottom: -15px; /* Odstęp między przyciskami */
+}
+.retry-btn:active { background-color: #014189; } /* Efekt kliknięcia */
+
+/* Przycisk "Wróć" (Biały z obramowaniem) */
+.back-btn {
+    background-color: white;
+    color: #014189; /* Niebieski tekst */
+    border: 2px solid #014189; /* Niebieskie obramowanie */
+}
+.back-btn:active { background-color: #F2F2F7; } /* Efekt kliknięcia */
+
+
+
+
+
+
+
+/* zmianyt */
+
+.cardt {
+    background-color: #1C1C1E; /* Ciemne tło, jak na obrazku */
+    border-radius: 16px;       /* Zaokrąglone rogi karty */
+    padding: 15px 20px;        /* Wewnętrzne odstępy, żeby treść nie dotykała krawędzi */
+    
+    /* Kluczowe do ułożenia elementów obok siebie */
+    display: flex;
+    align-items: center;       /* Wyśrodkowuje obrazek i tekst w pionie */
+    
+    /* Dodatkowe style dla funkcjonalności */
+    cursor: pointer;           /* Zmienia kursor na rączkę (bo masz onclick) */
+    margin-bottom: 10px;       /* Odstęp od innych kart */
+}
+
+/* Styl dla obrazka (klasa .human) */
+.humant {
+    width: 50px;               /* Przykładowa szerokość obrazka */
+    height: auto;              /* Wysokość dopasuje się z zachowaniem proporcji */
+    border-radius: 8px;        /* Lekkie zaokrąglenie rogów obrazka */
+    margin-right: 15px;        /* Odstęp między obrazkiem a tekstem */
+    
+    /* Jeśli Twój obrazek nie jest prostokątem z tłem jak na screenie, 
+       a chcesz uzyskać taki efekt, możesz dodać tymczasowe tło: */
+    /* background: linear-gradient(135deg, #007aff, #00c6ff); */
+    /* padding: 5px; */
+}
+
+/* Styl dla tekstu (klasa .title) */
+.titlet {
+    color: #ffffff;            /* Biały kolor tekstu */
+    font-weight: 500;          /* Lekkie pogrubienie dla lepszej czytelności */
+    margin: 0;                 /* Usuwa domyślne marginesy tagu <p>, żeby był idealnie na środku */
+    
+    /* Rozmiar czcionki masz już w HTML (20px), więc tu nie trzeba go dodawać.
+       Dla porządku możesz usunąć style="..." z HTML i dodać tu: */
+    /* font-size: 20px; */
+}
+
+
+
+
+.human {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+    width: 35px;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+.card {
+    width: 100%;
+    height: 100px;
+    background-color: #1C2024;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin-top: 10px;
+    display: grid;
+    margin-bottom: 20px;
+    grid-template-columns: 70px 30% 55%; 
+}
+
+/* A wtedy w .title wystarczy normalne: */
+.card .title {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10; /* Zwykłe zero, samo się ułoży */
+    font-size: 23px !important;
+    color: white;
+    font-weight: 500;
+}

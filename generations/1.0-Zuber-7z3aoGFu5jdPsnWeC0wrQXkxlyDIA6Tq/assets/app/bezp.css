@@ -1,0 +1,262 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/* === ZMIENNE - MOTYW CIEMNY === */
+:root {
+  --bottom-bar-height: 60px;
+  --primary-blue: #429BFF; 
+  --light-blue: #1A2634;
+  --bg-color: #121416;
+  --card-bg: #1C2024;
+  --text-main: #ffffff;
+  --text-muted: #999999;
+  --shadow-global: 0px 4px 15px rgba(0, 0, 0, 0.4); 
+  --bottom-bar-bg: #1C1C1E;
+  --border-color: #2C3035;
+  --bottom-text: #ffffff;
+  --active-bg: #2A2E33;
+  --icon-circle-bg: #d85c8b; 
+}
+
+/* === STYLE GŁÓWNE === */
+body {
+  background-color: var(--bg-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Poppins", sans-serif;
+  color: var(--text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  padding-bottom: calc(var(--bottom-bar-height) + 20px);
+}
+
+p, a, h1, input {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url("images/JLbwulF.html"); /* Pamiętaj o poprawnym rozszerzeniu */
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  /* W ciemnym motywie od razu przyciemniamy tło */
+  filter: brightness(0.3) contrast(1.2);
+}
+
+.top_bar {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  width: 100%;
+  position: relative;
+  z-index: 10;
+}
+
+.back_button {
+  display: flex;
+  align-items: center;
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 500;
+}
+
+.back_button::before {
+  content: "\f053";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+.main_title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-main);
+  white-space: nowrap;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 20px;
+  flex-grow: 1;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-bottom: calc(40px + var(--bottom-bar-height));
+}
+
+.icon_circle {
+  width: 65px;
+  height: 65px;
+  background-color: var(--icon-circle-bg);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 25px;
+}
+
+.icon_large {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+  text-align: left;
+  margin-bottom: 15px;
+  line-height: 1.2;
+  padding: 0 10px;
+}
+
+.subtitle {
+  font-size: 17px;
+  line-height: 1.4;
+  color: var(--text-muted);
+  text-align: left;
+  margin-bottom: 30px;
+  padding: 0 10px;
+}
+
+.button_list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.service_button {
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  box-shadow: var(--shadow-global);
+  padding: 20px;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+  text-align: left;
+}
+
+.service_button:active {
+  transform: translateY(2px);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); /* Słabszy cień na wciśnięcie w ciemnym motywie */
+}
+
+.button_title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary-blue);
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+.button_sub {
+  font-size: 15px;
+  color: var(--text-muted);
+  line-height: 1.3;
+  text-align: left;
+}
+
+.info_box {
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  box-shadow: var(--shadow-global);
+  padding: 20px;
+  width: 100%;
+  text-align: left;
+  font-size: 16px;
+  color: var(--text-main);
+  margin-top: 30px;
+}
+
+.info_box a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.info_box a:hover {
+  text-decoration: underline;
+}
+
+/* === PASEK DOLNY === */
+.bottom_bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--bottom-bar-height);
+  background-color: var(--bottom-bar-bg);
+  border-top: 0.1px solid var(--border-color);
+  z-index: 100;
+  padding-bottom: 0.5rem;
+}
+
+.bottom_bar_grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: 100%;
+  margin-bottom: 0.3rem;
+}
+
+.bottom_element_grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.bottom_element_grid:active {
+  background-color: var(--active-bg);
+}
+
+.bottom_element_image {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+.bottom_element_text {
+  font-size: 11px;
+  color: var(--bottom-text);
+  font-weight: 400;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.bottom_element_text.active {
+  color: var(--primary-blue);
+  font-weight: 600;
+}

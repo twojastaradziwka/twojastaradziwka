@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #121416;
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  font-size: 17px;
+  background: #121416;
+  border-bottom: 1px solid #1C2024;
+}
+
+.navbar a {
+  color: #429BFF;
+  text-decoration: none;
+}
+
+.navbar span {
+  font-weight: 500;
+}
+
+.help-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #121416;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: #1C2024;
+  font-size: 16px;
+  cursor: pointer;
+  color:white !important
+}
+
+.tab-btn.active {
+  background: #121416;
+  font-weight: 600;
+  border-bottom: 2px solid #429BFF;
+}
+
+.info-box {
+  background: #1C2024;
+  padding: 12px 16px;
+  font-size: 15px;
+  margin-bottom: 10px;
+  color:white !important
+}
+
+.content {
+  padding: 0 16px 20px;
+}
+
+h3 {
+  font-size: 16px;
+  margin: 20px 0 10px;
+  color:white !important
+}
+
+.points-card {
+  background: #1C2024;
+  border-radius: 15px;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  color:white !important
+}
+
+.points-card .circle {
+  width: 50px;
+  height: 50px;
+  background: #1C2024;
+  border: 3px solid green;
+  color: green;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 18px;
+  color:white !important
+}
+
+.violation-card {
+  background: #1C2024;
+  border-radius: 15px;
+  padding: 14px 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  color:white !important
+}
+
+.violation-card p {
+  margin: 4px 0 0;
+  font-size: 14px;
+}
+
+.arrow {
+  font-size: 20px;
+  color: #999;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  background: #fff;
+  border-top: 1px solid #ddd;
+}
+
+.nav-item {
+  flex: 1;
+  text-align: center;
+  padding: 8px 0;
+  font-size: 13px;
+  color: #555;
+}
+
+.nav-item.active {
+  color: #007aff;
+}
+
+.hidden {
+  display: none;
+}

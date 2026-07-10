@@ -1,0 +1,316 @@
+.title {
+    font-weight: 600;
+    margin-top: 30px;
+    font-size: 22px;
+    margin-bottom: 15px;
+    height: max-content;
+    color: #333333; /* Ciemny tekst dla jasnego motywu */
+}
+
+.titles {
+    font-weight: 600;
+    margin-top: 5px;
+    font-size: 22px;
+    margin-bottom: 0px;
+    height: max-content;
+    color: #333333;
+    line-height: 1.8;
+}
+
+.top_titles {
+    margin-top: 1px;
+    margin-bottom: 0px;
+    margin-left: 1px;
+    color: #333333;
+    font-weight: 300;
+}
+
+/* --- PASEK DOLNY PWA (STICKY FOOTER) --- */
+.bottom_confirm {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: max-content max-content;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    background-color: #ffffff; 
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.05); 
+    padding: 15px 20px;
+    
+    /* ZMIANA TUTAJ: Zwiększyliśmy 15px na 30px, żeby przycisk nie leżał na samej podłodze */
+    padding-bottom: calc(40px + env(safe-area-inset-bottom)); 
+    box-sizing: border-box;
+}
+
+.login_confirm {
+    color: white; /* Biały tekst na niebieskim tle wygląda najlepiej */
+    line-height: 60px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 22px;
+    width: 100%;
+    height: 60px;
+    border-radius: 40px;
+    margin-bottom: 0; 
+    cursor: pointer;
+    background-color: #014A93 !important; /* Granatowy z Twojego jasnego CSS */
+}
+
+/* --- TEKST Z KROPKĄ --- */
+.dot-text {
+    display: flex;
+    align-items: center; 
+    color: #333333; /* Ciemny tekst */
+    font-size: 20px;
+    font-weight: 500;
+    margin-left: 7px;
+    margin-top: 5px;
+}
+
+.dot-text::before {
+    content: ''; 
+    display: inline-block;
+    width: 6px; 
+    height: 6px; 
+    background-color: #014A93; /* Granatowa kropka ładnie pasuje do jasnego motywu */
+    border-radius: 50%; 
+    margin-right: 10px; 
+}
+
+/* --- KARTY (NOWY UKŁAD FLEXBOX) --- */
+.cards, .carde {
+    width: 100%;
+    min-height: 100px;
+    background-color: #ffffff; /* Białe tło */
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+.cardt {
+    background-color: #ffffff; 
+    border-radius: 16px; 
+    padding: 15px 20px; 
+    display: flex;
+    align-items: center; 
+    cursor: pointer; 
+    margin-bottom: 10px; 
+    box-shadow: var(--shadow); /* Dodany cień dla jasnego motywu */
+}
+
+.humant {
+    width: 50px; 
+    height: auto; 
+    border-radius: 8px; 
+    margin-right: 15px; 
+}
+
+.titlet {
+    color: #333333; 
+    font-weight: 500; 
+    margin: 0; 
+}
+
+/* --- GŁÓWNA KARTA Z GRIDEM --- */
+.card {
+    width: 100%;
+    height: 100px;
+    background-color: #ffffff; /* Białe tło */
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin-top: 10px;
+    display: grid;
+    margin-bottom: 20px;
+    grid-template-columns: 70px 30% 55%; /* Naprawiony grid z CSS 1 */
+}
+
+.card .title {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10px; /* Naprawiony brakujący "px" z CSS 1 */
+    font-size: 23px !important;
+    color: #333333; /* Ciemny tekst */
+    font-weight: 500;
+}
+
+.card .top_title {
+    margin-top: 15px;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    font-size: 13px !important;
+    color: #666666; /* Szary tekst dodatkowy */
+    font-weight: 300;
+}
+
+/* --- INNE ELEMENTY --- */
+.human {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20px;
+    width: 35px;
+    margin-right: auto;
+    border-radius: 5px;
+}
+
+.arrow {
+    margin-left: auto;
+    width: 25px;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 15px !important;
+}
+
+.other {
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    background-color: #ffffff; /* Białe tło */
+    width: 100%;
+    height: max-content;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: max-content max-content;
+}
+
+.other_title {
+    margin-top: 40px;
+    font-size: 22px;
+    height: max-content;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+    text-align: center;
+    color: #333333; /* Ciemny tekst */
+}
+
+.other_subtitle {
+    margin-bottom: 40px;
+    margin-top: 0px;
+    text-align: center;
+    opacity: 0.7; /* Zwiększona widoczność w jasnym motywie */
+    font-weight: 400;
+    font-size: 19px;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    color: #666666; 
+}
+
+/* =======================================================
+   OKIENKA WERYFIKACJI I BŁĘDU (DOSTOSOWANE DO LIGHT MODE)
+   ======================================================= */
+
+.verification-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* W jasnym motywie tło jest delikatniej przyciemnione */
+    display: none; 
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; 
+}
+
+.verification-box, .error-box-content {
+    background-color: #ffffff; 
+    border-radius: 20px;       
+    width: calc(100% - 40px); 
+    box-sizing: border-box;   
+    margin: 0 20px;           
+    padding: 40px 20px;        
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15); /* Wyraźniejszy cień dla białego okienka */
+}
+
+/* Spinner */
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f0f0f0; /* Jasnoszara obwódka */
+    border-top: 5px solid #014A93; /* Granatowy ruchomy element */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 25px; 
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.verification-text {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: #1f2125;
+    letter-spacing: 0.5px;
+}
+
+/* Błąd */
+.error-icon-container {
+    width: 60px;
+    height: 60px;
+    background-color: #FF3B30; 
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(255, 59, 48, 0.3); 
+}
+
+.error-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #1C1C1E; 
+    margin: 0 0 10px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.error-description {
+    font-size: 15px;
+    color: #3A3A3C; 
+    line-height: 1.4;
+    margin: 0 0 25px 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.error-btn {
+    width: 100%;
+    padding: 14px;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    border: none;
+    transition: background-color 0.2s, opacity 0.2s;
+}
+
+.retry-btn {
+    background-color: #014A93; 
+    color: white;
+    margin-bottom: 12px; 
+}
+.retry-btn:active { background-color: #013A75; } 
+
+.back-btn {
+    background-color: white;
+    color: #014A93; 
+    border: 2px solid #014A93; 
+}
+.back-btn:active { background-color: #F2F2F7; }

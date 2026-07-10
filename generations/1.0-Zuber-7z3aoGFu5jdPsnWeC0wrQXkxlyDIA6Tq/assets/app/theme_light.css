@@ -1,0 +1,97 @@
+body {
+  background-color: #f9f9f9; /* Jasne tło strony */
+  color: #000000; /* Czarny tekst */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  padding: 20px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  margin-left: 5px;
+  color: #000000;
+}
+
+.options-container {
+  background-color: #FFFFFF; /* Białe tło listy */
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #d1d1d6; /* Jasnoszara ramka */
+  transition: background-color 0.3s, border-color 0.3s;
+  margin-top: 60px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Delikatny cień dla głębi */
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  border-bottom: 1px solid #e5e5ea; /* Bardzo jasna linia oddzielająca */
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.option-item:last-child {
+  border-bottom: none;
+}
+
+.option-item:active {
+  background-color: #f2f2f7; /* Lekkie przyciemnienie przy dotknięciu */
+}
+
+.option-text {
+  font-size: 16px;
+  margin-left: 15px;
+  flex: 1;
+  color: #000000;
+}
+
+/* Kółeczka i Ptaszek */
+.radio-circle {
+  width: 22px;
+  height: 22px;
+  border: 2px solid #c7c7cc; /* Jasnoszara obwódka */
+  border-radius: 50%;
+  box-sizing: border-box;
+  transition: all 0.2s;
+}
+
+/* Stan aktywny (zielony - taki sam jak w ciemnym) */
+.active .radio-circle {
+  background-color: #00C853;
+  border-color: #00C853;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio-circle::after {
+  content: '';
+  display: none;
+}
+
+.active .radio-circle::after {
+  display: block;
+  width: 6px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  margin-bottom: 2px;
+}
+
+.back-btn {
+  margin-top: 30px;
+  padding: 15px;
+  background: transparent;
+  color: #007aff; /* Niebieski kolor przycisku (standard iOS/Android Light) */
+  border: none;
+  width: 100%;
+  text-align: center;
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 500;
+}

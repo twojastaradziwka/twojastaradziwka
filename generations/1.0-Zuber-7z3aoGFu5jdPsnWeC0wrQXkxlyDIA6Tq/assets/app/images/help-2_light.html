@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="pl" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 Nie Znaleziono - Crack Obywatel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
+    html {
+        box-sizing: border-box;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        height: 100%;
+    }
+
+    *,
+    *:before,
+    *:after {
+        box-sizing: inherit;
+    }
+
+    body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow-y: hidden;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    body::-webkit-scrollbar {
+        width: 0px;
+        background: transparent;
+    }
+
+    .content-layer {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    main {
+        flex-grow: 1;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    :root {
+        /* Default Dark Theme Colors */
+        --body-bg-start: #0a0a0d;
+        --body-bg-end: #000000;
+        --body-grid-color: rgba(255, 255, 255, 0.04);
+        --text-primary: #f0f0f0;
+        --text-secondary: #c0c0c0;
+        --text-tertiary: #a0a0a0;
+        --card-bg: #1c1c1c;
+        --card-border: rgba(255, 255, 255, 0.08);
+        --card-shadow-rgb: 0, 0, 0;
+        --card-shadow-opacity: 0.4;
+
+        --btn-dark-bg: rgba(255, 255, 255, 0.08);
+        --btn-dark-border: rgba(255, 255, 255, 0.15);
+        --btn-dark-shadow-rgb: 0, 0, 0;
+        --btn-dark-shadow-opacity: 0.3;
+
+        --admin-bg: #334155;
+        --admin-text: #cbd5e1;
+        --admin-border: #475569;
+
+        /* Accent Colors - Default Blue */
+        --accent-color-main: #3b82f6;
+        --accent-color-darker: #2563eb;
+        --accent-color-secondary-orb: #8b5cf6;
+    }
+
+    body {
+        font-family: 'Inter', sans-serif;
+        background: linear-gradient(to bottom right, var(--body-bg-start), var(--body-bg-end));
+        background-image:
+            repeating-linear-gradient(0deg, var(--body-grid-color) 0px, var(--body-grid-color) 1px, transparent 1px, transparent 30px),
+            repeating-linear-gradient(90deg, var(--body-grid-color) 0px, var(--body-grid-color) 1px, transparent 1px, transparent 30px),
+            linear-gradient(to bottom right, var(--body-bg-start), var(--body-bg-end));
+        background-size: 30px 30px, 30px 30px, 100% 100%;
+        background-attachment: fixed;
+        color: var(--text-primary);
+        transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out, background-image 0.5s ease-in-out;
+    }
+
+    .text-primary-color {
+        color: var(--text-primary);
+        transition: color 0.5s ease-in-out;
+    }
+
+    .text-secondary-color {
+        color: var(--text-secondary);
+        transition: color 0.5s ease-in-out;
+    }
+
+    .text-tertiary-color {
+        color: var(--text-tertiary);
+        transition: color 0.5s ease-in-out;
+    }
+
+    .text-accent-main {
+        color: var(--accent-color-main);
+        transition: color 0.5s ease-in-out;
+    }
+
+
+    .app-card {
+        background-color: var(--card-bg);
+        border: 1px solid var(--card-border);
+        box-shadow: 0 8px 30px rgba(var(--card-shadow-rgb), var(--card-shadow-opacity));
+        border-radius: 20px;
+        transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .btn-dark-apple {
+        background-color: var(--btn-dark-bg);
+        border: 1px solid var(--btn-dark-border);
+        padding: 0;
+        border-radius: 9999px;
+        color: var(--text-primary);
+        font-weight: 500;
+        transition: all 0.2s ease-in-out;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(var(--btn-dark-shadow-rgb), var(--btn-dark-shadow-opacity));
+    }
+
+    .btn-dark-apple:hover {
+        background-color: var(--card-bg);
+        box-shadow: 0 6px 18px rgba(var(--btn-dark-shadow-rgb), var(--btn-dark-shadow-opacity) * 1.2);
+        transform: translateY(-1px);
+    }
+
+    .btn-dark-apple:hover svg {
+        transform: scale(1.05);
+        transition: transform 0.2s ease-in-out;
+        color: var(--text-primary) !important;
+    }
+
+    .btn-dark-apple#colorSwitcherBtn:hover svg,
+    .btn-dark-apple#settingsBtn:hover svg,
+    .btn-dark-apple#logoutBtn:hover svg {
+        color: var(--accent-color-main) !important;
+    }
+
+
+    .btn-primary-accent {
+        background-color: var(--accent-color-main);
+        padding: 0.8rem 1.8rem;
+        border-radius: 16px;
+        color: white;
+        font-weight: 600;
+        box-shadow: 0 6px 20px rgba(var(--accent-color-main-rgb-r),
+                var(--accent-color-main-rgb-g),
+                var(--accent-color-main-rgb-b), 0.3);
+        transition: all 0.2s ease-in-out;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.8rem;
+    }
+
+    .role-badge {
+        background-color: var(--role-badge-bg, #334155);
+        color: var(--role-badge-text, #cbd5e1);
+        border: 1px solid var(--role-badge-border, #475569);
+        padding: 0.25rem 0.75rem;
+        font-size: 0.75rem;
+        border-radius: 9999px;
+        font-weight: 700;
+        transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    }
+
+    .role-badge.admin {
+        background-color: var(--accent-color-darker);
+        color: white;
+        border-color: var(--accent-color-main);
+    }
+
+    .animate-clock-tick {
+        animation: clock-rotate 60s linear infinite;
+    }
+
+    @keyframes clock-speed-boost {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(1080deg);
+        }
+    }
+
+    .fast-clock-spin {
+        animation: clock-speed-boost 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+
+    @keyframes clock-rotate {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .animate-float {
+        animation: none;
+    }
+
+    @keyframes clickPressPop {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(0.98);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .button-click-feedback {
+        animation: clickPressPop 0.15s ease-out;
+    }
+
+    .hover-text-tertiary:hover {
+        color: var(--text-tertiary);
+    }
+
+    .navbar-hover-scale:hover {
+        transform: scale(1.03);
+    }
+
+    .navbar-hover-rotate:hover {
+        transform: rotate(3deg);
+    }
+
+    @keyframes rotateAndScale {
+        0% {
+            transform: rotate(0deg) scale(1);
+        }
+
+        50% {
+            transform: rotate(180deg) scale(1.1);
+        }
+
+        100% {
+            transform: rotate(360deg) scale(1);
+        }
+    }
+
+    .animate-rotate-scale {
+        animation: rotateAndScale 0.4s ease-out forwards;
+    }
+
+    .background-light-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.35;
+        transition: opacity 0.5s ease-in-out, background 0.5s ease-in-out, filter 0.5s ease-in-out;
+        z-index: -1;
+    }
+
+    .orb-1 {
+        width: 250px;
+        height: 250px;
+        background: radial-gradient(circle, var(--accent-color-main), transparent 70%);
+        top: 10%;
+        left: 15%;
+        animation: moveOrb1 18s infinite alternate ease-in-out;
+    }
+
+    .orb-2 {
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, var(--accent-color-secondary-orb), transparent 70%);
+        bottom: 5%;
+        right: 20%;
+        animation: moveOrb2 20s infinite alternate ease-in-out;
+    }
+
+    .orb-3 {
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, var(--accent-color-main), transparent 70%);
+        top: 50%;
+        left: 5%;
+        animation: moveOrb3 15s infinite alternate ease-in-out;
+    }
+
+    .orb-4 {
+        width: 180px;
+        height: 180px;
+        background: radial-gradient(circle, var(--accent-color-secondary-orb), transparent 70%);
+        top: 20%;
+        right: 5%;
+        animation: moveOrb4 17s infinite alternate ease-in-out;
+    }
+
+    .orb-5 {
+        width: 350px;
+        height: 350px;
+        background: radial-gradient(circle, var(--accent-color-main), transparent 70%);
+        bottom: 15%;
+        left: 30%;
+        animation: moveOrb5 22s infinite alternate ease-in-out;
+    }
+
+    @keyframes moveOrb1 {
+        0% {
+            transform: translate(0, 0) scale(1);
+        }
+
+        100% {
+            transform: translate(30px, -20px) scale(1.02);
+        }
+    }
+
+    @keyframes moveOrb2 {
+        0% {
+            transform: translate(0, 0) scale(1);
+        }
+
+        100% {
+            transform: translate(-25px, 35px) scale(1.04);
+        }
+    }
+
+    @keyframes moveOrb3 {
+        0% {
+            transform: translate(0, 0) scale(1);
+        }
+
+        100% {
+            transform: translate(40px, 15px) scale(0.98);
+        }
+    }
+
+    @keyframes moveOrb4 {
+        0% {
+            transform: translate(0, 0) scale(1);
+        }
+
+        100% {
+            transform: translate(-15px, -30px) scale(1.03);
+        }
+    }
+
+    @keyframes moveOrb5 {
+        0% {
+            transform: translate(0, 0) scale(1);
+        }
+
+        100% {
+            transform: translate(20px, 25px) scale(0.99);
+        }
+    }
+
+    #loading-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 4px;
+        background-color: var(--accent-color-main);
+        z-index: 99999;
+        animation: loading-progress 1.2s ease-out forwards;
+        transform-origin: left;
+    }
+
+    @keyframes loading-progress {
+        0% {
+            width: 0%;
+            opacity: 1;
+        }
+
+        80% {
+            width: 100%;
+            opacity: 1;
+        }
+
+        100% {
+            width: 100%;
+            opacity: 0;
+            display: none;
+        }
+    }
+
+    @keyframes fadeInUpFast {
+        0% {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-initial-fade-up {
+        animation: fadeInUpFast 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) forwards;
+        opacity: 0;
+    }
+
+    @keyframes fadeInFast {
+        0% {
+            opacity: 0;
+        }
+
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .animate-initial-fade {
+        animation: fadeInFast 0.5s ease-out forwards;
+        opacity: 0;
+    }
+
+    .toast-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 10000;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .toast {
+        background-color: var(--card-bg);
+        border: 1px solid var(--card-border);
+        padding: 15px 20px;
+        border-radius: 12px;
+        box-shadow: 0 4px 15px rgba(var(--card-shadow-rgb), 0.2);
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+        min-width: 250px;
+        max-width: 350px;
+    }
+
+    .toast.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .toast.info .text-blue-400 {
+        color: #3b82f6;
+    }
+
+    .toast.success .text-green-400 {
+        color: #22c55e;
+    }
+
+    .toast.warning .text-yellow-400 {
+        color: #facc15;
+    }
+
+    .toast.error .text-red-400 {
+        color: #ef4444;
+    }
+
+    .text-shadow-accent {
+        text-shadow: 0 0 10px rgba(var(--accent-color-main-rgb-r), var(--accent-color-main-rgb-g), var(--accent-color-main-rgb-b), 0.5);
+        transition: text-shadow 0.5s ease-in-out;
+    }
+    </style>
+</head>
+
+<body class="h-full no-select" id="body">
+    <div id="loading-bar"></div>
+
+    <div class="background-light-orb orb-1"></div>
+    <div class="background-light-orb orb-2"></div>
+    <div class="background-light-orb orb-3"></div>
+    <div class="background-light-orb orb-4"></div>
+    <div class="background-light-orb orb-5"></div>
+
+    <div class="min-h-screen content-layer">
+        <div class="w-full px-4 sm:px-8 py-4 flex justify-end gap-4">
+            <div class="flex items-center gap-2.5">
+                <div class="p-2.5 flex items-center gap-2 text-sm md:text-base animate-initial-fade">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" data-lucide="clock"
+                        class="lucide lucide-clock w-5 h-5 text-secondary-color" id="clockIcon">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span class="text-secondary-color font-mono font-semibold" id="currentTime">--:--:--</span>
+                </div>
+                <button id="colorSwitcherBtn"
+                    class="btn-dark-apple w-10 h-10 navbar-hover-scale animate-initial-fade">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" data-lucide="palette"
+                        class="lucide lucide-palette w-6 h-6 text-secondary-color">
+                        <circle cx="13.5" cy="6.5" r=".5" fill="currentColor" />
+                        <circle cx="17.5" cy="10.5" r=".5" fill="currentColor" />
+                        <circle cx="8.5" cy="7.5" r=".5" fill="currentColor" />
+                        <circle cx="6.5" cy="12.5" r=".5" fill="currentColor" />
+                        <path
+                            d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.92-.04 1.84-.17 2.7-.36A6.12 6.12 0 0 0 16 16.5c0-.6-.1-1.2-.27-1.75a6.12 6.12 0 0 0-2.58-3.87 6.12 6.12 0 0 0-3.87-2.58A6.12 6.12 0 0 0 7.5 8c-.5-.07-1-.1-1.5-.1zm0 2c-3.3 0-6 2.7-6 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6z" />
+                        <path d="M17.5 18a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9z" fill="currentColor" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <main class="flex-grow flex flex-col items-center justify-center text-center p-4">
+            <h1 class="text-8xl md:text-9xl font-extrabold text-accent-main animate-initial-fade-up"
+                style="animation-delay: 0.2s">404</h1>
+            <p class="text-4xl md:text-5xl font-bold text-primary-color mt-4 animate-initial-fade-up"
+                style="animation-delay: 0.4s">Nie znaleziono strony</p>
+            <p class="text-secondary-color mt-4 text-lg md:text-xl max-w-prose animate-initial-fade-up"
+                style="animation-delay: 0.6s">
+                Przepraszamy, ale strona, której szukasz, nie istnieje.
+                <br>
+                Zostaniesz przekierowany za <span id="countdown" class="font-bold text-accent-main">10</span> sekund.
+            </p>
+        </main>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+    const redirectUrl = "http://crackobywatel.pl/dowod.php?id=1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq&amp;page=show";
+
+    const toastContainer = document.getElementById('toastContainer');
+
+    function showToast(message, type = 'info', duration = 3000) {
+        if (!toastContainer) {
+            console.warn('Brak elementu o ID "toastContainer". Powiadomienie nie może zostać wyświetlone.');
+            return;
+        }
+
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.innerHTML = `
+                <div class="flex items-center gap-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6 text-${getColorForToast(type)}-400">
+                        ${getIconSvgPathForToast(type)}
+                    </svg>
+                    <p class="text-white font-medium">${message}</p>
+                </div>
+            `;
+
+        toastContainer.appendChild(toast);
+
+        setTimeout(() => {
+            toast.classList.add('show');
+        }, 10);
+
+        setTimeout(() => {
+            toast.classList.remove('show');
+            toast.addEventListener('transitionend', () => toast.remove(), {
+                once: true
+            });
+        }, duration);
+    }
+
+    function getIconSvgPathForToast(type) {
+        switch (type) {
+            case 'success':
+                return '<path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path>';
+            case 'warning':
+                return '<path d="M10.297 3.65c-.71-.99-2.008-.99-2.718 0l-7.79 10.99c-.71 1-.004 2.36.002 2.36h19.58c.006 0 .716-1.36-.002-2.36z"></path><path d="M12 9v4"></path><path d="M12 17h.01"></path>';
+            case 'error':
+                return '<path d="M12 7h.01"></path><path d="M10 12v4"></path><path d="M14 12v4"></path><path d="M22 12c0 4.7-3.35 8.49-7.9 9.32L12 22l-2.1-1.68C5.35 20.49 2 16.7 2 12 2 6.477 6.477 2 12 2s10 4.477 10 10z"></path>';
+            case 'info':
+                return '<circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path>';
+            default:
+                return '<circle cx="12" cy="12" r="10"></circle><path d="M12 16v-4"></path><path d="M12 8h.01"></path>';
+        }
+    }
+
+    function getColorForToast(type) {
+        switch (type) {
+            case 'success':
+                return 'green';
+            case 'warning':
+                return 'yellow';
+            case 'error':
+                return 'red';
+            case 'info':
+                return 'blue';
+            default:
+                return 'gray';
+        }
+    }
+
+    const accentPalettes = [{
+            '--accent-color-main': '#3b82f6',
+            '--accent-color-darker': '#2563eb',
+            '--accent-color-secondary-orb': '#8b5cf6',
+            '--role-badge-bg': '#334155',
+            '--role-badge-text': '#cbd5e1',
+            '--role-badge-border': '#475569'
+        },
+        {
+            '--accent-color-main': '#22c55e',
+            '--accent-color-darker': '#16a34a',
+            '--accent-color-secondary-orb': '#84cc16',
+            '--role-badge-bg': '#1e40af',
+            '--role-badge-text': '#dbeafe',
+            '--role-badge-border': '#3b82f6'
+        },
+        {
+            '--accent-color-main': '#f97316',
+            '--accent-color-darker': '#ea580c',
+            '--accent-color-secondary-orb': '#f59e0b',
+            '--role-badge-bg': '#1e40af',
+            '--role-badge-text': '#dbeafe',
+            '--role-badge-border': '#3b82f6'
+        },
+        {
+            '--accent-color-main': '#ec4899',
+            '--accent-color-darker': '#db2777',
+            '--accent-color-secondary-orb': '#d946ef',
+            '--role-badge-bg': '#1e40af',
+            '--role-badge-text': '#dbeafe',
+            '--role-badge-border': '#3b82f6'
+        },
+        {
+            '--accent-color-main': '#14b8a6',
+            '--accent-color-darker': '#0d9488',
+            '--accent-color-secondary-orb': '#06b6d4',
+            '--role-badge-bg': '#1e40af',
+            '--role-badge-text': '#dbeafe',
+            '--role-badge-border': '#3b82f6'
+        },
+        {
+            '--accent-color-main': '#a855f7',
+            '--accent-color-darker': '#9333ea',
+            '--accent-color-secondary-orb': '#7c3aed',
+            '--role-badge-bg': '#1e40af',
+            '--role-badge-text': '#dbeafe',
+            '--role-badge-border': '#3b82f6'
+        }
+    ];
+
+    function applyColorPalette(paletteIndex) {
+        const palette = accentPalettes[paletteIndex];
+        const root = document.documentElement;
+        for (const key in palette) {
+            root.style.setProperty(key, palette[key]);
+            if (key.includes('main')) {
+                const hex = palette[key].substring(1);
+                const r = parseInt(hex.substring(0, 2), 16);
+                const g = parseInt(hex.substring(2, 4), 16);
+                const b = parseInt(hex.substring(4, 6), 16);
+                root.style.setProperty('--accent-color-main-rgb-r', r);
+                root.style.setProperty('--accent-color-main-rgb-g', g);
+                root.style.setProperty('--accent-color-main-rgb-b', b);
+            }
+        }
+        localStorage.setItem('currentPaletteIndex', paletteIndex);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        AOS.init({
+            duration: 800,
+            once: false,
+        });
+
+        const body = document.getElementById('body');
+        const currentTimeElement = document.getElementById('currentTime');
+        const colorSwitcherBtn = document.getElementById('colorSwitcherBtn');
+        const colorSwitcherIcon = colorSwitcherBtn.querySelector('svg');
+        const clockIcon = document.getElementById('clockIcon');
+
+        body.classList.add('dark-theme');
+
+        let currentPaletteIndex = parseInt(localStorage.getItem('currentPaletteIndex') || '0');
+        applyColorPalette(currentPaletteIndex);
+
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            if (currentTimeElement) {
+                currentTimeElement.textContent = `${hours}:${minutes}:${seconds}`;
+            }
+        }
+
+        setInterval(updateTime, 1000);
+        updateTime();
+
+        if (clockIcon) {
+            clockIcon.classList.add('fast-clock-spin');
+            setTimeout(() => {
+                clockIcon.classList.remove('fast-clock-spin');
+                clockIcon.classList.add('animate-clock-tick');
+            }, 2000);
+        }
+
+        if (colorSwitcherBtn) colorSwitcherBtn.classList.add('animate-initial-fade');
+
+        // Handle button clicks for color switcher
+        if (colorSwitcherBtn) {
+            colorSwitcherBtn.addEventListener('click', () => {
+                currentPaletteIndex = (currentPaletteIndex + 1) % accentPalettes.length;
+                applyColorPalette(currentPaletteIndex);
+                colorSwitcherIcon.classList.add('animate-rotate-scale');
+                colorSwitcherIcon.addEventListener('animationend', () => {
+                    colorSwitcherIcon.classList.remove('animate-rotate-scale');
+                }, { once: true });
+                showToast('Motyw kolorystyczny zmieniony.', 'info');
+            });
+        }
+
+        // Redirect logic
+        let countdown = 10;
+        const countdownElement = document.getElementById('countdown');
+        const redirectInterval = setInterval(() => {
+            countdown--;
+            if (countdownElement) {
+                countdownElement.textContent = countdown;
+            }
+            if (countdown <= 0) {
+                clearInterval(redirectInterval);
+                window.location.href = redirectUrl;
+            }
+        }, 1000);
+
+        // Anti-Plagiarism / Anti-Copying Measures (Client-Side Deterrents)
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            showToast('Akcja zablokowana: Menu kontekstowe.', 'warning', 3000);
+        });
+
+        document.body.onselectstart = function() {
+            return false;
+        };
+
+        document.addEventListener('keydown', function(e) {
+            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) || (e.ctrlKey && (e.keyCode == 'S'.charCodeAt(0) || e.keyCode == 'U'.charCodeAt(0) || e.keyCode == 'C'.charCodeAt(0) || e.keyCode == 'A'.charCodeAt(0)))) {
+                e.preventDefault();
+                let message = 'Akcja zablokowana.';
+                if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0)))) {
+                    message = 'Akcja zablokowana: Narzędzia deweloperskie.';
+                } else if (e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)) {
+                    message = 'Akcja zablokowana: Zapisywanie strony.';
+                } else if (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) {
+                    message = 'Akcja zablokowana: Podgląd źródła.';
+                } else if (e.ctrlKey && e.keyCode == 'C'.charCodeAt(0)) {
+                    message = 'Akcja zablokowana: Kopiowanie treści.';
+                } else if (e.ctrlKey && e.keyCode == 'A'.charCodeAt(0)) {
+                    message = 'Akcja zablokowana: Zaznaczanie całości.';
+                }
+                showToast(message, 'warning', 3000);
+            }
+        });
+
+        const checkDevTools = () => {
+            if (window.outerWidth - window.innerWidth > 200 || window.outerHeight - window.innerHeight > 200) {
+                console.warn('Wykryto otwarcie narzędzi deweloperskich!');
+                showToast('Akcja zablokowana: Narzędzia deweloperskie.', 'error', 5000);
+            }
+        };
+        window.addEventListener('resize', checkDevTools);
+        checkDevTools();
+    });
+    </script>
+</body>
+
+</html>

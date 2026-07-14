@@ -1,0 +1,623 @@
+<title>mObywatel</title><link rel="icon" type="image/png" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F_TNbiYKasPy_isTSEg2_UEzVaev4F8fO2lLunsHJ8_Ux2g3OzkSZyzpqvJG1woSj-WD4&amp;f=1&amp;nofb=1&amp;ipt=d7aba7d875a2743df00700d0d658eeab02a1ab1efac2869f60e4f9912039da8b"><link rel="apple-touch-icon" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F_TNbiYKasPy_isTSEg2_UEzVaev4F8fO2lLunsHJ8_Ux2g3OzkSZyzpqvJG1woSj-WD4&amp;f=1&amp;nofb=1&amp;ipt=d7aba7d875a2743df00700d0d658eeab02a1ab1efac2869f60e4f9912039da8b">
+<!-- Mirrored from crackobywatel.pl/dowod.php?id=1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq&page=id by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 24 Dec 2025 20:26:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<meta name="mobile-web-app-capable" content="yes"><link rel="shortcut icon" sizes="192x192" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F_TNbiYKasPy_isTSEg2_UEzVaev4F8fO2lLunsHJ8_Ux2g3OzkSZyzpqvJG1woSj-WD4&amp;f=1&amp;nofb=1&amp;ipt=d7aba7d875a2743df00700d0d658eeab02a1ab1efac2869f60e4f9912039da8b"><!-- 
+  Copyright © 2025 CrackObywatel. Wszystkie prawa zastrzelone.
+-->
+<html lang="pl">
+  <head>
+    <script>
+      // --- 1. KONFIGURACJA ---
+      var basePath = "generations/1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq/assets/app/";
+      
+      // Lista plików CSS dla tej konkretnej strony
+      var cssFiles = ["login.css"]; 
+  
+      // --- 2. LOGIKA GŁÓWNA ---
+      (function() {
+          var mode = localStorage.getItem("app_mode"); // "light" lub null
+  
+          // A. ŁADOWANIE PLIKÓW CSS
+          for (var i = 0; i < cssFiles.length; i++) {
+              var fileName = cssFiles[i];
+              if (mode === "light") {
+                  fileName = fileName.replace(".css", "_light.css");
+              }
+              document.write('<link class="theme-link" rel="stylesheet" href="' + basePath + fileName + '">');
+          }
+  
+          // B. AUTOMATYCZNA ZMIANA IKONEK (To naprawia Twój problem)
+          if (mode === "light") {
+              // KROK 1: Ukrywamy obrazki .html zanim się pojawią (żeby nie mignęły na ciemno)
+              document.write('<style id="icon-fix">img[src$=".html"] { visibility: hidden; }</style>');
+  
+              // KROK 2: Czekamy aż strona się wczyta
+              window.addEventListener('DOMContentLoaded', function() {
+                  // Szukamy wszystkich obrazków kończących się na .html
+                  var images = document.querySelectorAll('img[src$=".html"]');
+  
+                  images.forEach(function(img) {
+                      var currentSrc = img.getAttribute("src");
+                      
+                      // Jeśli to nie jest jeszcze wersja light, zmieniamy
+                      if (!currentSrc.includes("_light.html")) {
+                          var newSrc = currentSrc.replace(".html", "_light.html");
+                          
+                          // ZABEZPIECZENIE: Jeśli wersja light nie istnieje, zostaw starą
+                          img.onerror = function() {
+                              this.onerror = null;
+                              this.src = currentSrc;
+                          };
+                          
+                          img.src = newSrc;
+                      }
+                  });
+  
+                  // KROK 3: Usuwamy blokadę widoczności - ikonki się pokazują
+                  // Robimy minimalne opóźnienie (0ms), żeby przeglądarka zdążyła przetrawić zmianę src
+                  setTimeout(function() {
+                      var styleTag = document.getElementById("icon-fix");
+                      if (styleTag) styleTag.remove();
+                  }, 0);
+              });
+          }
+      })();
+  </script>
+
+    <link
+      rel="manifest"
+      href="data:application/manifest+json;base64,eyJuYW1lIjoiIiwic2hvcnRfbmFtZSI6IiIsInRoZW1lX2NvbG9yIjoiI2Y1ZjZmYiIsImJhY2tncm91bmRfY29sb3IiOiIjZjVmNmZiIiwiZGlzcGxheSI6InN0YW5kYWxvbmUifQ==" />
+    <title>mObywatel</title>
+    <meta charset="UTF-8" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <link
+      rel="stylesheet"
+      href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="icon" type="image/x-icon" href="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fplay-lh.googleusercontent.com%2F_TNbiYKasPy_isTSEg2_UEzVaev4F8fO2lLunsHJ8_Ux2g3OzkSZyzpqvJG1woSj-WD4&amp;f=1&amp;nofb=1&amp;ipt=d7aba7d875a2743df00700d0d658eeab02a1ab1efac2869f60e4f9912039da8b" />
+    <link rel="apple-touch-icon" href="dowodf3be.html?id=1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq&amp;page=logo" />
+    <link rel="shortcut icon" href="dowodf3be.html?id=1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq&amp;page=logo" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="mobile-web-app-capable" content="yes" />
+  </head>
+  <body>
+    <div class="background"></div>
+    <div class="container" id="login-section" style="display: block">
+      <div class="top_grid">
+        <img class="logo" src="generations/1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq/assets/app/images/logo_large.html" />
+        <p class="logo_text">mObywatel</p>
+      </div>
+      <div class="top_text">
+        <p class="welcome">Dzień dobry!</p>
+        <p class="login_text">Zaloguj się do aplikacji.</p>
+    </div>
+    
+    <div class="password_box">
+      <div class="password_grid">
+          <p class="password_text">Hasło</p>
+          <div class="input_holder">
+              <input id="passwordInput" type="text" class="password_input" inputmode="url" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false"/>
+              <div class="eye" onclick="togglePassword()"></div>
+          </div>
+          <p class="forgot_password">Nie pamiętasz hasła?</p>
+      </div>
+  </div>
+    
+    <div class="bottom">
+
+      
+      <div id="biometric-overlay" style="display: none;">
+        <div class="biometric-box" onclick="triggerBiometricAuth()">
+            
+            <img src="generations\1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq\assets\app\images\odcisk_ikona.html" alt="Odcisk palca" class="biometric-icon-img">
+            
+            <p style="margin-top: 15px;">Dotknij ikony, aby użyć biometrii</p>
+        </div>
+    </div>
+      <p class="login_btn" onclick="validateAndLogin(event)">Zaloguj się</p>
+
+      <p class="biometric_btn" onclick="showBiometricPrompt()">Zaloguj się biometrią</p>
+  
+      <div id="hidden-home-trigger" class="login" data-page="home" style="display: none;"></div>
+
+  
+      <div class="data">
+          <img class="logo_other" style="height: 20px" src="generations/1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq/assets/app/images/coi.html" />
+          <img class="logo_other" src="generations/1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq/assets/app/images/mc.html" />
+          <p class="version">wersja 4.63.0 (17)</p>
+      </div>
+  </div>
+    </div>
+
+    <div
+      class="forgot-password-section"
+      id="forgot-password-section"
+      style="display: none">
+      <a class="back-link"> <i class="fas fa-chevron-left"></i> Wróć </a>
+      <div class="icon-circle">
+        <img
+          src="generations/1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq/assets/app/images/key_login.html"
+          alt="Key Icon"
+          class="icon-key-img" />
+      </div>
+      <p class="title">Nie pamiętasz hasła?</p>
+      <p class="paragraph">
+        Aktywuj ponownie aplikację – ustaw nowe hasło, dodaj dokument i
+        potwierdź swoją tożsamość.
+      </p>
+      <p class="subtitle">Czego potrzebujesz?</p>
+      <p class="additional-text">
+        Do aktywacji możesz użyć profilu zaufanego, e-dowodu lub bankowości
+        elektronicznej.
+      </p>
+      <div class="activation-bottom">
+        <a href="#" class="login-btn" data-page="activation"
+          >Aktywuj ponownie</a
+        >
+      </div>
+    </div>
+
+    <script>
+
+      // Ten ID możesz zostawić, jeśli używasz go do ładowania konkretnych danych
+
+      const folderId = "1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq";
+
+   
+
+      function sendTo(pageName, folderIdParam) {
+
+        // pageName to będzie np. "strona2"
+
+        // folderIdParam to ID, które wpada do funkcji
+
+       
+
+        const targetFolder = folderIdParam || folderId;
+
+   
+
+        if (targetFolder) {
+
+          // Przekierowanie do pliku HTML z parametrami w linku
+
+          // Zmieniamy 'dowod.php' na 'dowod.html' (lub inną nazwę Twojego pliku)
+
+          window.location.href = `${pageName}.html?id=${targetFolder}`;
+
+        } else {
+
+          console.error("Brak folder ID.");
+
+          window.location.href = `${pageName}.html`;
+
+        }
+
+      }
+
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+
+      const loginButton = document.querySelector(".login");
+
+      if (loginButton) {
+
+        loginButton.addEventListener("click", () => {
+
+          const pageName = loginButton.dataset.page;
+
+          sendTo(pageName, folderId);
+
+        });
+
+      }
+
+
+
+      const activationButton = document.querySelector(
+
+        ".activation-bottom .login-btn"
+
+      );
+
+      if (activationButton) {
+
+        activationButton.addEventListener("click", (e) => {
+
+          e.preventDefault();
+
+          const confirmation = confirm(
+
+            "Chcesz ponownie aktywować aplikację?\n\nTo spowoduje usunięcie twoich danych i dokumentów. W kolejnych krokach potwierdzisz tożsamość z profilem zaufanym, e-dowodem lub bankowością elektroniczną."
+
+          );
+
+          if (confirmation) {
+
+            const pageName = activationButton.dataset.page;
+
+            sendTo(pageName, folderId);
+
+          }
+
+        });
+
+      }
+
+    });
+
+
+
+    var welcome = "Dzień dobry!";
+
+    var date = new Date();
+
+    if (date.getHours() >= 18) {
+
+      welcome = "Dobry wieczór!";
+
+    }
+
+    document.querySelector(".welcome").innerHTML = welcome;
+
+
+
+    var input = document.querySelector(".password_input");
+
+    input.addEventListener("keypress", (event) => {
+
+      if (event.key === "Enter") {
+
+        document.activeElement.blur();
+
+      }
+
+    });
+
+
+
+
+
+
+    function delay(time, length) {
+
+      return new Promise((resolve) => setTimeout(resolve, time));
+
+    }
+
+
+
+    eye.addEventListener("click", () => {
+
+      var classlist = eye.classList;
+
+      if (classlist.contains("eye_close")) {
+
+        classlist.remove("eye_close");
+
+        var dots = "";
+
+        for (var i = 0; i < input.value.length - 1; i++) {
+
+          dots = dots + dot;
+
+        }
+
+        input.value = dots;
+
+      } else {
+
+        classlist.add("eye_close");
+
+        input.value = original;
+
+      }
+
+    });
+
+
+
+    const loginSection = document.getElementById("login-section");
+
+    const forgotPasswordSection = document.getElementById(
+
+      "forgot-password-section"
+
+    );
+
+    const forgotPasswordLink = document.querySelector(".forgot_password");
+
+    const backLink = document.querySelector(".back-link");
+
+
+
+    forgotPasswordLink.addEventListener("click", () => {
+
+      loginSection.style.display = "none";
+
+      forgotPasswordSection.style.display = "flex";
+
+    });
+
+
+
+    backLink.addEventListener("click", () => {
+
+      loginSection.style.display = "block";
+
+      forgotPasswordSection.style.display = "none";
+
+    });
+
+
+
+    document.addEventListener("keydown", function (e) {
+
+      if (
+
+        e.keyCode === 123 ||
+
+        (e.ctrlKey && e.shiftKey && e.keyCode === 73) ||
+
+        (e.ctrlKey && e.keyCode === 85)
+
+      ) {
+
+        e.preventDefault();
+
+      }
+
+    });
+
+
+
+    let webManifest = {
+
+      name: "",
+
+      short_name: "",
+
+      theme_color: "#f5f6fb",
+
+      background_color: "#f5f6fb",
+
+      display: "standalone",
+
+    };
+
+
+
+    let manifestElem = document.createElement("link");
+
+    manifestElem.setAttribute("rel", "manifest");
+
+    manifestElem.setAttribute(
+
+      "href",
+
+      "data:application/manifest+json;base64," +
+
+        btoa(JSON.stringify(webManifest))
+
+    );
+
+    document.head.prepend(manifestElem);
+
+  </script>
+
+
+
+<script>
+
+  // 1. USTAWIENIE DOMYŚLNEGO HASŁA (Naprawione: łapie też "puste" hasła z poprzednich testów)
+  var currentPass = localStorage.getItem("app_password");
+  if (currentPass === null || currentPass === "") {
+      localStorage.setItem("app_password", "1234"); // Ustaw domyślne hasło
+  }
+  
+  
+  // 2. LOGOWANIE
+  function validateAndLogin(event) {
+  
+      if(event) {
+          event.preventDefault();
+          event.stopPropagation();
+      }
+  
+      var input = document.getElementById("passwordInput");
+      var enteredPass = input.value.trim(); // Czyścimy spacje
+      var realPass = localStorage.getItem("app_password");
+  
+      // Diagnostyka w konsoli
+      console.log("Wpisane:", enteredPass);
+      console.log("Prawdziwe:", realPass);
+  
+      // TWARDA BLOKADA: Jeśli użytkownik nic nie wpisze, od razu wywalamy błąd
+      if (enteredPass === "") {
+          input.style.border = "2px solid red";
+          input.placeholder = "Wpisz hasło!";
+          
+          input.onclick = function() {
+              input.style.border = "1px solid #5D6467";
+              input.placeholder = "";
+          };
+          return; // Zatrzymujemy działanie, nie sprawdzamy dalej
+      }
+  
+      if (enteredPass === realPass) {
+          // HASŁO DOBRE
+          var trigger = document.getElementById("hidden-home-trigger");
+          if (trigger) {
+              trigger.click();
+          } else {
+              // Awaryjne przeniesienie
+              if (typeof sendTo === "function") {
+                  var urlParams = new URLSearchParams(window.location.search);
+                  var id = urlParams.get('id') || '1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq';
+                  sendTo('home', id);
+              }
+          }
+      } else {
+          // HASŁO ZŁE
+          input.style.border = "2px solid red";
+          input.value = "";
+          input.placeholder = "Błędne hasło!";
+          
+          input.onclick = function() {
+              input.style.border = "1px solid #5D6467";
+              input.placeholder = "";
+          };
+      }
+  }
+  
+  
+  // 3. NOWA FUNKCJA OCZKA (Działa na klasach CSS)
+  function togglePassword() {
+      var input = document.getElementById("passwordInput");
+      var eye = document.querySelector('.eye');
+      
+      // Zamiast zmieniać type="text", przełączamy klasę .show_text
+      if (input.classList.contains("show_text")) {
+          // Ukryj hasło (zrób kropki)
+          input.classList.remove("show_text");
+          eye.classList.remove('eye_close');
+      } else {
+          // Pokaż hasło
+          input.classList.add("show_text");
+          eye.classList.add('eye_close');
+      }
+  }
+  
+  </script>
+
+  <script>
+function showBiometricPrompt() {
+    const passwordBox = document.querySelector('.password_box');
+    const biometricOverlay = document.getElementById('biometric-overlay');
+    const loginBtn = document.querySelector('.login_btn');
+    const bioBtn = document.querySelector('.biometric_btn');
+
+    // 1. Chowanie hasła
+    if (passwordBox) passwordBox.style.display = 'none';
+    
+    // 2. Pokazywanie odcisku
+    if (biometricOverlay) biometricOverlay.style.display = 'flex';
+
+    // 3. Chowanie niebieskiego przycisku (Zaloguj się)
+    if (loginBtn) {
+        loginBtn.style.display = 'none';
+    } else {
+        console.warn("Błąd: Nie znaleziono elementu z klasą .login_btn w HTML!");
+    }
+
+    // 4. Zmiana tekstu i akcji dolnego przycisku
+    if (bioBtn) {
+        bioBtn.textContent = 'Wpisz hasło';
+        bioBtn.setAttribute('onclick', 'hideBiometricPrompt()');
+    }
+}
+
+function hideBiometricPrompt() {
+    const passwordBox = document.querySelector('.password_box');
+    const biometricOverlay = document.getElementById('biometric-overlay');
+    const loginBtn = document.querySelector('.login_btn');
+    const bioBtn = document.querySelector('.biometric_btn');
+
+    // 1. Ukrywamy odcisk
+    if (biometricOverlay) biometricOverlay.style.display = 'none';
+    
+    // 2. Przywracamy hasło
+    if (passwordBox) passwordBox.style.display = 'block';
+
+    // 3. Przywracamy niebieski przycisk
+    if (loginBtn) loginBtn.style.display = 'block';
+
+    // 4. Resetujemy dolny przycisk
+    if (bioBtn) {
+        bioBtn.textContent = 'Zaloguj się biometrią';
+        bioBtn.setAttribute('onclick', 'showBiometricPrompt()');
+    }
+}
+
+// Odpala się po kliknięciu w ikonę odcisku palca w PWA
+async function triggerBiometricAuth() {
+    const savedIdB64 = localStorage.getItem('biometric_id');
+
+    // 1. Sprawdzamy, czy użytkownik w ogóle włączył biometrię w ustawieniach
+    if (!savedIdB64) {
+        alert("Najpierw musisz skonfigurować odcisk palca / Face ID w ustawieniach aplikacji!");
+        return;
+    }
+
+    console.log("Odpalam biometrię przeglądarkową PWA...");
+    
+    // 2. Dekodujemy zapisany wcześniej klucz
+    const rawId = Uint8Array.from(atob(savedIdB64), c => c.charCodeAt(0));
+    const options = {
+        challenge: Uint8Array.from("bmw-club-challenge-123456789", c => c.charCodeAt(0)),
+        allowCredentials: [{
+            id: rawId,
+            type: 'public-key'
+        }],
+        timeout: 60000
+    };
+
+    try {
+        // 3. Wywołanie natywnego okna skanowania (Face ID / Touch ID / Android Biometrics)
+        const assertion = await navigator.credentials.get({ publicKey: options });
+        
+        if (assertion) {
+            console.log("Biometria PWA zweryfikowana pomyślnie!");
+            onBiometricSuccess(); // Przechodzimy dalej
+        }
+    } catch (err) {
+        onBiometricError(err.message);
+    }
+}
+
+// Funkcja wywoływana po poprawnym skanie palca
+function onBiometricSuccess() {
+    console.log("Odcisk prawidłowy! Uruchamiam proces logowania...");
+
+    // 1. Próba kliknięcia ukrytego przycisku przejścia do ekranu głównego
+    var trigger = document.getElementById("hidden-home-trigger");
+    
+    if (trigger) {
+        console.log("Znaleziono trigger, przechodzę dalej...");
+        trigger.click();
+    } else {
+        // 2. Awaryjne przeniesienie (jeśli triggera nie ma w DOM)
+        if (typeof sendTo === "function") {
+            console.log("Brak triggera, odpalam funkcję awaryjną sendTo...");
+            var urlParams = new URLSearchParams(window.location.search);
+            var id = urlParams.get('id') || '1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq';
+            sendTo('home', id);
+        } else {
+            console.error("Błąd krytyczny: Nie znaleziono elementu 'hidden-home-trigger' ani funkcji 'sendTo'!");
+        }
+    }
+}
+
+// Funkcja na wypadek błędu/anulowania
+function onBiometricError(errorMessage) {
+    console.log("Błąd biometrii: " + errorMessage);
+    // Nie musisz dawać alertu przy zwykłym anulowaniu (użytkownik kliknął "Anuluj")
+    if (errorMessage.indexOf("abort") === -1 && errorMessage.indexOf("cancel") === -1) {
+        alert("Błąd logowania biometrycznego: " + errorMessage);
+    }
+}
+   </script> 
+  </body>
+
+<!-- Mirrored from crackobywatel.pl/dowod.php?id=1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq&page=id by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 24 Dec 2025 20:26:56 GMT -->
+</html>
+<!-- 
+  Copyright © 2025 CrackObywatel. Wszystkie prawa zastrzelone.
+-->

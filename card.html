@@ -314,69 +314,135 @@
 <script src="generations/1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq/assets/app/bar.js"></script>
 <script src="generations/1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq/assets/app/card.js"></script>
 <scirpt>
+// 🛠️ LOG STARTOWY - odpala się natychmiast po załadowaniu pliku przez przeglądarkę
+console.log("%c=== 🛠️ [DIAGNOSTYKA] PLIK JS ZAŁADOWANY I AKTYWNY ===", "color: #00ffcc; font-weight: bold; font-size: 12px;");
+
 document.addEventListener("DOMContentLoaded", () => {
+    console.log("▶️ [DIAGNOSTYKA] Zdarzenie DOMContentLoaded odpalone. Rozpoczynam analizę URL...");
+
     const urlParams = new URLSearchParams(window.location.search);
+    console.log("🔎 [DIAGNOSTYKA] Pełny tekst parametrów w URL:", window.location.search || "(brak jakichkolwiek parametrów)");
+
     const photoParam = urlParams.get('photo');
-    const userParam = urlParams.get('user');
+    console.log("📷 [DIAGNOSTYKA] Wartość wyciągnięta z 'photo':", photoParam);
     
-    let daneZmienione = false;
-
-    // 1. Zapisujemy nick użytkownika w localStorage
-    if (userParam) {
-        localStorage.setItem('zalogowany_user', userParam.trim());
-        daneZmienione = true;
-    }
-
-    // 2. Zapisujemy i naprawiamy zdjęcie z Imgura
+    // 1. Przetwarzanie i zapisywanie zdjęcia
     if (photoParam) {
         let photoUrl = photoParam.trim();
+        console.log("⚙️ [DIAGNOSTYKA] Rozpoczynam analizę formatu dla:", photoUrl);
         
-        // Jeśli w URL podano samo ID (np. "XyZ123"), robimy z tego bezpośredni link
         if (!photoUrl.startsWith('http')) {
+            console.log("📦 [DIAGNOSTYKA] Wykryto samo ID obrazka. Generuję pełny link bezpośredni do Imgura...");
             photoUrl = `https://i.imgur.com/${photoUrl}.jpg`;
         } else {
-            // Jeśli to pełny link, upewniamy się, że wskazuje na plik graficzny
+            console.log("🔗 [DIAGNOSTYKA] Wykryto pełny link. Przekazuję do parsera w celu weryfikacji...");
+            const stareUrl = photoUrl;
             photoUrl = naprawLinkImgur(photoUrl);
+            console.log(`🔄 [DIAGNOSTYKA] Parser skończył: [Przed: ${stareUrl}] -> [Po: ${photoUrl}]`);
         }
 
+        console.log("💾 [DIAGNOSTYKA] Zapisuję link do localStorage pod kluczem 'bmw_car_photo'...");
         localStorage.setItem('bmw_car_photo', photoUrl);
-        daneZmienione = true;
+        console.log("✅ [DIAGNOSTYKA] Zapisano! Sprawdzam stan pamięci:", localStorage.getItem('bmw_car_photo'));
+
+        // 2. Czyszczenie paska adresu z parametru 'photo'
+        console.log("🧼 [DIAGNOSTYKA] Próba usunięcia parametru 'photo' z paska adresu...");
+        urlParams.delete('photo');
+        try {
+            const noweParametry = urlParams.toString();
+            const cleanUrl = window.location.pathname + (noweParametry ? '?' + noweParametry : '');
+            window.history.replaceState({}, document.title, cleanUrl);
+            console.log("🧹 [DIAGNOSTYKA] Sukces! Nowy URL w przeglądarce to:", cleanUrl);
+        } catch (e) {
+            console.warn("⚠️ [DIAGNOSTYKA] Nie udało się wyczyścić adresu URL (częste przy testach lokalnych pliku file://):", e.message);
+        }
+    } else {
+        console.log("ℹ️ [DIAGNOSTYKA] Link nie zawierał parametru '?photo='. Pomijam krok aktualizacji i czyszczenia pamięci.");
     }
 
-    // 3. Czyścimy parametry z paska adresu (zostaje czysty URL)
-    if (daneZmienione) {
-        const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
-        window.history.replaceState({}, document.title, cleanUrl);
-    }
-
-    // 4. Odpalamy podmianę grafiki
-    wyswietlZdjecieAuta();
+    // 3. Uruchomienie wymuszenia obrazka
+    wymusZdjecieZLocal();
 });
 
-// Funkcja podmieniająca src obrazka na podstawie klasy z Twojego HTML
-function wyswietlZdjecieAuta() {
-    // Łapiemy element bezpośrednio po Twojej klasie "id_own_image"
-    const imgElement = document.querySelector('.id_own_image');
+function wymusZdjecieZLocal() {
+    console.log("📂 [DIAGNOSTYKA] Funkcja wymusZdjecieZLocal() wystartowała.");
     const zapisaneZdjecie = localStorage.getItem('bmw_car_photo');
 
-    if (imgElement && zapisaneZdjecie) {
-        imgElement.src = zapisaneZdjecie;
-        console.log("Załadowano zdjęcie z localStorage dla klasy .id_own_image:", zapisaneZdjecie);
+    if (!zapisaneZdjecie) {
+        console.log("%c❌ [DIAGNOSTYKA] PAMIĘĆ PUSTA: Brak zapisanego zdjęcia w localStorage. Pozwalam przeglądarce załadować domyślne id.jpg.", "color: #ff3333;");
+        return;
     }
+
+    console.log("%c🎯 [DIAGNOSTYKA] PAMIĘĆ TRAFIONA: W telefonie siedzi link: " + zapisaneZdjecie, "color: #33ff33;");
+
+    // Funkcja wykonująca fizyczną podmianę src w elemencie HTML
+    const podmienIBlokuj = (metodaWywolania) => {
+        const img = document.querySelector('.id_own_image');
+        
+        if (!img) {
+            console.log(`⏳ [DIAGNOSTYKA][Metoda: ${metodaWywolania}] Nie znaleziono jeszcze elementu z klasą .id_own_image w strukturze strony.`);
+            return false;
+        }
+
+        if (img.src !== zapisaneZdjecie) {
+            console.log(`🔄 [DIAGNOSTYKA][Metoda: ${metodaWywolania}] Wykryto niezgodność! Podmieniam src z: [${img.src}] na: [${zapisaneZdjecie}]`);
+            img.src = zapisaneZdjecie;
+            return true;
+        }
+        
+        return true;
+    };
+
+    // Próba natychmiastowej podmiany przy ładowaniu
+    console.log("⚡ [DIAGNOSTYKA] Odpalam szybki strzał podmiany...");
+    podmienIBlokuj("SzybkiStrzal");
+
+    // Pętla na wypadek gdyby strona ładowała kod HTML bardzo wolno (sprawdza co 50ms przez 3 sekundy)
+    console.log("⏱️ [DIAGNOSTYKA] Uruchamiam pętlę sprawdzającą (interwał 50ms) na wypadek opóźnień w renderowaniu...");
+    let licznik = 0;
+    const interval = setInterval(() => {
+        const znalezionoElement = podmienIBlokuj("Pętla_50ms");
+        licznik++;
+        
+        // Jeśli element został znaleziony i pętla kręci się już za długo, wyłączamy ją
+        if (znalezionoElement && licznik > 60) {
+            clearInterval(interval);
+            console.log("🛑 [DIAGNOSTYKA] Zamykam pętlę sprawdzającą 50ms (czas minął, element zabezpieczony).");
+        }
+    }, 50);
+
+    // 🛡️ TARCZA OCHRONNA (MutationObserver) - blokuje inne skrypty przed nadpisaniem obrazka
+    console.log("🛡️ [DIAGNOSTYKA] Konfiguruję tarczę ochronną (MutationObserver)...");
+    const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+            if (mutation.type === "attributes" && mutation.attributeName === "src") {
+                console.log("🚨 [DIAGNOSTYKA][TARCZA] Wykryto, że jakiś skrypt zewnętrzny właśnie spróbował zmienić atrybut 'src' w Twoim obrazku!");
+                const img = document.querySelector('.id_own_image');
+                if (img && img.src !== zapisaneZdjecie) {
+                    console.log(`⚔️ [DIAGNOSTYKA][TARCZA] Kontratak! Próba wymuszenia obcej grafiki zablokowana. Przywracam link: [${zapisaneZdjecie}]`);
+                    img.src = zapisaneZdjecie;
+                }
+            }
+        });
+    });
+
+    // Podpinamy tarczę pod obrazek, jak tylko pojawi się fizycznie w przeglądarce
+    const checkExist = setInterval(() => {
+        const img = document.querySelector('.id_own_image');
+        if (img) {
+            observer.observe(img, { attributes: true });
+            clearInterval(checkExist);
+            console.log("%c✅ [DIAGNOSTYKA][TARCZA] Obserwator pomyślnie podpięty pod .id_own_image. Pełna blokada nadpisywania aktywna.", "color: #33ff33; font-weight: bold;");
+        }
+    }, 100);
 }
 
-// Funkcja pomocnicza do naprawiania linków z Imgura
 function naprawLinkImgur(url) {
     if (!url.includes('imgur.com')) return url;
     if (url.includes('i.imgur.com')) return url;
-
     const reg = /imgur\.com\/(?:gallery\/|a\/)?([a-zA-Z0-9]+)/;
     const match = url.match(reg);
-
-    if (match && match[1]) {
-        return `https://i.imgur.com/${match[1]}.jpg`;
-    }
-    return url;
+    return match && match[1] ? `https://i.imgur.com/${match[1]}.jpg` : url;
 }
       
 </scirpt>      

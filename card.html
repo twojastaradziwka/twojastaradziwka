@@ -313,6 +313,73 @@
 </div>
 <script src="generations/1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq/assets/app/bar.js"></script>
 <script src="generations/1.0-Zuber-7z3aoGFu5jdPsnWeC0wrQXkxlyDIA6Tq/assets/app/card.js"></script>
+<scirpt>
+document.addEventListener("DOMContentLoaded", () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const photoParam = urlParams.get('photo');
+    const userParam = urlParams.get('user');
+    
+    let daneZmienione = false;
+
+    // 1. Zapisujemy nick użytkownika w localStorage
+    if (userParam) {
+        localStorage.setItem('zalogowany_user', userParam.trim());
+        daneZmienione = true;
+    }
+
+    // 2. Zapisujemy i naprawiamy zdjęcie z Imgura
+    if (photoParam) {
+        let photoUrl = photoParam.trim();
+        
+        // Jeśli w URL podano samo ID (np. "XyZ123"), robimy z tego bezpośredni link
+        if (!photoUrl.startsWith('http')) {
+            photoUrl = `https://i.imgur.com/${photoUrl}.jpg`;
+        } else {
+            // Jeśli to pełny link, upewniamy się, że wskazuje na plik graficzny
+            photoUrl = naprawLinkImgur(photoUrl);
+        }
+
+        localStorage.setItem('bmw_car_photo', photoUrl);
+        daneZmienione = true;
+    }
+
+    // 3. Czyścimy parametry z paska adresu (zostaje czysty URL)
+    if (daneZmienione) {
+        const cleanUrl = window.location.protocol + "//" + window.location.host + window.location.pathname;
+        window.history.replaceState({}, document.title, cleanUrl);
+    }
+
+    // 4. Odpalamy podmianę grafiki
+    wyswietlZdjecieAuta();
+});
+
+// Funkcja podmieniająca src obrazka na podstawie klasy z Twojego HTML
+function wyswietlZdjecieAuta() {
+    // Łapiemy element bezpośrednio po Twojej klasie "id_own_image"
+    const imgElement = document.querySelector('.id_own_image');
+    const zapisaneZdjecie = localStorage.getItem('bmw_car_photo');
+
+    if (imgElement && zapisaneZdjecie) {
+        imgElement.src = zapisaneZdjecie;
+        console.log("Załadowano zdjęcie z localStorage dla klasy .id_own_image:", zapisaneZdjecie);
+    }
+}
+
+// Funkcja pomocnicza do naprawiania linków z Imgura
+function naprawLinkImgur(url) {
+    if (!url.includes('imgur.com')) return url;
+    if (url.includes('i.imgur.com')) return url;
+
+    const reg = /imgur\.com\/(?:gallery\/|a\/)?([a-zA-Z0-9]+)/;
+    const match = url.match(reg);
+
+    if (match && match[1]) {
+        return `https://i.imgur.com/${match[1]}.jpg`;
+    }
+    return url;
+}
+      
+</scirpt>      
 
 </body>
 
